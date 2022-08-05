@@ -1,7 +1,8 @@
-import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
-import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
+import { BrowserRouter } from "react-router-dom";
 import { SearchInput } from "./components/molecules/SearchInput";
 import { UserCard } from "./components/organisms/user/UserCard";
+import { DefaltLayout } from "./components/templates/DefaltLayout";
+import { HeaderOnly } from "./components/templates/HeaderOnly";
 import "./styles.css";
 
 export default function App() {
@@ -16,12 +17,11 @@ export default function App() {
     website: "https://google.com"
   };
   return (
-    <div className="App">
-      <PrimaryButton>テスト</PrimaryButton>
-      <SecondaryButton>検索</SecondaryButton>
-      <br />
-      <SearchInput />
-      <UserCard user={user} />
-    </div>
+    <BrowserRouter>
+      <DefaltLayout>
+        <SearchInput />
+        <UserCard user={user} />
+      </DefaltLayout>
+    </BrowserRouter>
   );
 }
